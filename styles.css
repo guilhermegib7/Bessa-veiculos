@@ -1,0 +1,420 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f3f4f6;
+    color: #202124;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.marca {
+    padding: 24px 20px 10px;
+    background: #171717;
+    color: #fff;
+    text-align: center;
+}
+
+.marca-nome {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    font-family: Impact, "Arial Narrow", "Trebuchet MS", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-style: italic;
+    font-weight: 900;
+    letter-spacing: 0.035em;
+    line-height: 1;
+    text-transform: uppercase;
+    text-shadow: 2px 3px 0 #85000e;
+}
+
+.marca-nome span {
+    color: #e21a2d;
+}
+
+.slogan {
+    margin: 0;
+    padding: 8px 20px 24px;
+    background: #171717;
+    border-bottom: 4px solid #c90016;
+    color: #d5d5d5;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+
+main {
+    width: min(1200px, calc(100% - 32px));
+    margin: 36px auto;
+}
+
+#vitrine {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    align-items: stretch;
+    gap: 24px;
+}
+
+#vitrine > h2 {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: #202124;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.veiculo {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 12px 12px 18px;
+    border: 1px solid #e1e3e6;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgb(0 0 0 / 8%);
+    text-align: center;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    cursor: pointer;
+}
+
+.veiculo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgb(0 0 0 / 13%);
+}
+
+.carrosel {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    border-radius: 9px;
+    background: #e8e8e8;
+}
+
+.carrosel img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carrosel .btn-voltar,
+.carrosel .btn-avancar {
+    position: absolute;
+    top: 50%;
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    transform: translateY(-50%);
+    border: 0;
+    border-radius: 50%;
+    background: rgb(20 20 20 / 72%);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.8rem;
+    line-height: 1;
+    transition: background 160ms ease, scale 160ms ease;
+}
+
+.carrosel .btn-voltar {
+    left: 10px;
+}
+
+.carrosel .btn-avancar {
+    right: 10px;
+}
+
+.carrosel .btn-voltar:hover,
+.carrosel .btn-avancar:hover {
+    scale: 1.08;
+    background: #c90016;
+}
+
+.veiculo h3 {
+    margin: 18px 8px 8px;
+    color: #202124;
+    font-size: 1.2rem;
+}
+
+.veiculo p {
+    flex: 1;
+    margin: 0 8px 18px;
+    color: #64676b;
+    line-height: 1.5;
+}
+
+.veiculo .preco-legenda {
+    flex: 0;
+    margin: 0 8px 3px;
+    color: #777b80;
+    font-size: 0.72rem;
+    line-height: 1.3;
+}
+
+.veiculo .preco {
+    flex: 0;
+    margin: 0 8px 16px;
+    color: #c90016;
+    font-size: 1.25rem;
+}
+
+.veiculo:focus-visible {
+    outline: 3px solid #c90016;
+    outline-offset: 4px;
+}
+
+.btn-interesse {
+    display: inline-block;
+    align-self: center;
+    padding: 11px 20px;
+    border: 0;
+    border-radius: 7px;
+    background: #c90016;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 160ms ease;
+}
+
+.btn-interesse:hover {
+    background: #a90012;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid #202124;
+    outline-offset: 3px;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 22px;
+    border-radius: 12px;
+    background: #171717;
+    color: #fff;
+    text-align: center;
+}
+
+footer p {
+    margin: 0 0 12px;
+    color: #e5e5e5;
+    line-height: 1.5;
+}
+
+footer a {
+    color: #fff;
+    font-weight: 700;
+    text-decoration-color: #c90016;
+    text-underline-offset: 4px;
+}
+
+.detalhe-veiculo {
+    position: fixed;
+    grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr);
+    align-items: stretch;
+    width: min(1000px, calc(100vw - 32px));
+    height: min(760px, calc(100dvh - 32px));
+    max-width: none;
+    max-height: calc(100dvh - 32px);
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 16px;
+    background: #fff;
+    color: #202124;
+    box-shadow: 0 20px 70px rgb(0 0 0 / 35%);
+}
+
+.detalhe-veiculo:not([open]) {
+    display: none;
+}
+
+.detalhe-veiculo[open] {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr);
+}
+
+.detalhe-veiculo::backdrop {
+    background: rgb(12 12 12 / 78%);
+    backdrop-filter: blur(3px);
+}
+
+.detalhe-foto {
+    position: relative;
+    display: grid;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    place-items: center;
+    background: #151515;
+}
+
+.detalhe-imagem {
+    display: block;
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.detalhe-foto button,
+.detalhe-fechar {
+    position: absolute;
+    z-index: 1;
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: rgb(20 20 20 / 78%);
+    color: #fff;
+    cursor: pointer;
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.detalhe-foto button {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.detalhe-voltar {
+    left: 16px;
+}
+
+.detalhe-avancar {
+    right: 16px;
+}
+
+.detalhe-foto button:hover,
+.detalhe-fechar:hover {
+    background: #c90016;
+}
+
+.detalhe-fechar {
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    background: rgb(20 20 20 / 82%);
+    font-size: 1.8rem;
+}
+
+.detalhe-conteudo {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+    padding: 24px clamp(20px, 5vw, 40px) 30px;
+    text-align: center;
+}
+
+.detalhe-conteudo h2 {
+    margin: 0 38px 10px;
+    color: #202124;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.detalhe-informacoes {
+    margin: 0 0 14px;
+    color: #64676b;
+    line-height: 1.5;
+}
+
+.detalhe-legenda {
+    margin: 0 0 3px;
+    color: #777b80;
+    font-size: 0.8rem;
+}
+
+.detalhe-preco {
+    margin: 0 0 18px;
+    color: #c90016;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+@media (max-width: 600px) {
+    main {
+        width: min(100% - 24px, 420px);
+        margin: 24px auto;
+    }
+
+    #vitrine {
+        gap: 18px;
+    }
+
+    .detalhe-veiculo {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) auto;
+        width: calc(100vw - 20px);
+        height: calc(100dvh - 20px);
+        max-height: calc(100dvh - 20px);
+        border-radius: 12px;
+    }
+
+    .detalhe-foto {
+        min-height: 0;
+    }
+
+    .detalhe-foto button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .detalhe-conteudo {
+        padding: 14px 18px 18px;
+    }
+
+    .detalhe-conteudo h2 {
+        margin-bottom: 6px;
+        font-size: 1.25rem;
+    }
+
+    .detalhe-informacoes {
+        margin-bottom: 8px;
+    }
+
+    .detalhe-preco {
+        margin-bottom: 12px;
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-height: 560px) {
+    .detalhe-veiculo {
+        grid-template-columns: minmax(0, 1.5fr) minmax(230px, 0.8fr);
+        grid-template-rows: minmax(0, 1fr);
+        height: calc(100dvh - 20px);
+        max-height: calc(100dvh - 20px);
+    }
+
+    .detalhe-conteudo {
+        padding: 12px 18px;
+    }
+
+    .detalhe-conteudo h2 {
+        font-size: 1.25rem;
+    }
+
+    .detalhe-preco {
+        font-size: 1.2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
