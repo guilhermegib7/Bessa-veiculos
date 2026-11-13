@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Bessa Veiculos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        if (sessionStorage.getItem("logado") !== "true") {
+            window.location.href = "admin.html";
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <img src="img/logo.png" alt="logo bessa veiculos" class="logo">
+        <button onclick="sair()">Sair</button>
+    </nav>
+
+    <div class="layout-painel">
+        <form id="veiculo" style="width: 350px;">
+            <h2 style="margin-top: 0; font-size: 20px; text-align: left;">Cadastrar Veículo</h2>
+            <label>Marca</label>
+            <input type="text" id="marca" required>
+            <label>Modelo</label>
+            <input type="text" id="modelo" required>
+            <label>Ano</label>
+            <input type="number" id="ano" required>
+            <label>Preço</label>
+            <input type="number" id="preco" required> 
+            <label>Descrição</label>
+            <input type="text" id="descricao" placeholder="Ex: Único dono, IPVA 2026 pago...">
+            <label>Link da Foto</label>
+            <input type="text" id="imagem" placeholder="Cole o link da imagem">
+            <button type="submit" style="margin-top: 10px;">Salvar Veiculo</button>
+        </form>
+
+        <div class="coluna-tabelas" style="flex: 1;">
+            <h2 style="margin-top: 0; font-size: 20px; text-align: left;">Veículos em Estoque</h2>
+            <table> 
+                <thead>
+                    <tr>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Ano</th>
+                        <th>Preço</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-veiculos"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr style="border: 1px solid #333; margin: 40px 0; width: 100%; max-width: 1200px;">
+
+    <div class="layout-painel">
+        <form id="form-vendedor" style="width: 350px;">
+            <h2 style="margin-top: 0; font-size: 20px; text-align: left;">Cadastrar Vendedor</h2>
+            <label>Nome Completo</label>
+            <input type="text" id="nome-vendedor" required>
+            <label>Matrícula</label>
+            <input type="text" id="matricula-vendedor" required>
+            <button type="submit" style="margin-top: 10px;">SALVAR VENDEDOR</button>
+        </form>
+
+        <div class="coluna-tabelas" style="flex: 1;">
+            <h2 style="margin-top: 0; font-size: 20px; text-align: left;">Equipe de Vendas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Matrícula</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-vendedores"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr style="border: 1px solid #333; margin: 40px 0; width: 100%; max-width: 1200px;">
+
+    <div class="layout-painel">
+        <form id="form-cliente" style="width: 350px;">
+            <h2 style="margin-top: 0; font-size: 20px; text-align: left;">Cadastrar Cliente</h2>
+            <label>Nome do Cliente</label>
+            <input type="text" id="nome-cliente" required>
+            <label>Celular</label>
+            <input type="text" id="celular-cliente" required>
+            <button type="submit" style="margin-top: 10px;">SALVAR CLIENTE</button>
+        </form>
+
+        <div class="coluna-tabelas" style="flex: 1;">
+            <h2 style="margin-top: 0; font-size: 20px; text-align: left;">Lista de Clientes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Celular</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-clientes"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
